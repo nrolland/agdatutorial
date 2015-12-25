@@ -1,0 +1,6 @@
+/.shelly/
+dist/
+tarballs/
+*.swp
+.cabal-sandbox
+.stack-work

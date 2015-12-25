@@ -339,14 +339,15 @@ record IsGroup (A : Set) (_∙_ : Op₂ A) (li : Op₁ A) (ε : A) : Set where
       --open EqR ( setoid A) - 2014-12-14
       rightInverse : RightInverse ε _∙_ li
       rightInverse = λ x → begin
-                       x ∙ (li x)                       ≈⟨ sym ( identityˡ _) ⟩
-                       ε ∙ (x ∙ li x )                  ≈⟨ sym (leftInverse _) ⟨ ∙-cong ⟩ refl ⟩
-                       (li(li x) ∙ li x) ∙ (x ∙ li x)   ≈⟨ assoc _ _ _ ⟩
-                       li (li x) ∙ (li x ∙ (x ∙ li x))  ≈⟨ refl ⟨ ∙-cong ⟩ (sym (assoc _ _ _ ) ) ⟩
-                       li(li x) ∙ ((li x ∙ x) ∙ (li x)) ≈⟨ refl ⟨ ∙-cong ⟩ (leftInverse _  ⟨ ∙-cong ⟩ refl) ⟩
-                       li(li x) ∙ ((ε ∙ (li x) ) )      ≈⟨ refl ⟨ ∙-cong ⟩ (identityˡ _)    ⟩
-                       li(li x) ∙ (li x)                ≈⟨ leftInverse _  ⟩
-                       ε ∎
+                       x ∙ (li x)                        ≈⟨ sym ( identityˡ _) ⟩
+                       ε ∙ (x ∙ li x )                   ≈⟨ sym (leftInverse _) ⟨ ∙-cong ⟩ refl ⟩
+                       (li(li x) ∙ li x) ∙ (x ∙ li x)    ≈⟨ assoc _ _ _ ⟩
+                       li (li x) ∙ (li x ∙ (x ∙ li x))   ≈⟨ refl ⟨ ∙-cong ⟩ (sym (assoc _ _ _ ) ) ⟩
+                       li (li x) ∙ ((li x ∙ x) ∙ (li x)) ≈⟨ refl ⟨ ∙-cong ⟩ (leftInverse _  ⟨ ∙-cong ⟩ refl) ⟩
+                       li(li x) ∙ ((ε ∙ (li x) ) )       ≈⟨ refl ⟨ ∙-cong ⟩ (identityˡ _)    ⟩
+                       li(li x) ∙ (li x)                 ≈⟨ leftInverse _  ⟩
+                       ε
+                       ∎
 
 
   rightHelper : ∀ {x y} -> y ≡ li x ∙ ( x ∙ y)
@@ -473,7 +474,6 @@ A) Prove that (ℕ, +) is a semigroup (by proving that there is
 a corresponding element of `Semigroup`)!
 
 B) Define the types of all monoids as a record with fields `Carrier`, `_∙_`, `ε` and `isMonoid`!
-
 <!--
 \begin{code}
 record Monoid : Set₁ where
